@@ -14,6 +14,24 @@ id = "abc-123";
   // ^ ❌ tsc(2322): Type '"abc-123"' is not assignable to type 'uuid<v>'.
 ```
 
+## 💿 Install
+
+Install:
+
+`npm install primitive-types --save-dev`
+
+Then enable in your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "primitive-types"
+    ]
+  }
+}
+```
+
 ## Types
 
 <table>
