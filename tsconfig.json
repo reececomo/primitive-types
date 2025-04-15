@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es6",
+    "module": "esnext",
+    "lib": ["dom", "es2020"],
+    "allowJs": false,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "types": ["./globals.d.ts"],
+  },
+  "include": ["./globals.d.ts"]
+}
