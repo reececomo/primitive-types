@@ -158,21 +158,21 @@ Then enable in your `tsconfig.json`:
     <tr>
       <td>✅</td>
       <td><b>char8</b></td>
-      <td>Any 1-byte character (e.g. ASCII).</td>
+      <td>Any 1-byte character (e.g. <code>'e'</code>, <code>'3'</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>string</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>char16</b></td>
-      <td>Any 2-byte character (e.g. UTF-16).</td>
+      <td>Any 2-byte character (e.g. <code>'ѐ'</code>, <code>'϶'</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>string</code></td>
     </tr>
     <tr>
       <td>❌</td>
       <td><b>char32</b></td>
-      <td>Any 4-byte character</td>
+      <td>Any 4-byte character.</td>
       <td><i>Not supported</i></td>
       <td>-</td>
     </tr>
@@ -202,7 +202,7 @@ Then enable in your `tsconfig.json`:
     <tr>
       <td>✅</td>
       <td><b>uuid</b></td>
-      <td>Any UUID (e.g. "0196382e-cc57-43ce-88c7-a3e427bc2713").<br/>Strict UUID versions may be enforced using generics (e.g. <code>uuid<4></code>).</td>
+      <td>Any UUID (e.g. <code>"0196382e-cc57-43ce-88c7-a3e427bc2713"</code>).<br/>Strict UUID versions may be enforced using generics (e.g. <code>uuid<4></code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html">Template literal type</a></td>
       <td><code>string</code></td>
     </tr>
@@ -210,14 +210,14 @@ Then enable in your `tsconfig.json`:
     <tr>
       <td>✅</td>
       <td><b>hex</b></td>
-      <td>A single hexadecimal character (e.g. "0", "5", "a", "F").</td>
+      <td>A single hexadecimal character (e.g. <code>'0'</code>, <code>'5'</code>, <code>'a'</code>, <code>'A'</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>string</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>octet</b></td>
-      <td>A 1-byte hexadecimal string representing (e.g. "00", "c4", "F8").</td>
+      <td>A 1-byte hexadecimal string representation (e.g. <code>"00"</code>, <code>"cb"</code>, <code>"F7"</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html">Template literal type</a></td>
       <td><code>string</code></td>
     </tr>
