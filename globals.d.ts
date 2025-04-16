@@ -4,6 +4,7 @@ import "./types/bitfield.js";
 import "./types/byte.js";
 import "./types/char8.js";
 import "./types/char16.js";
+import "./types/email.js";
 import "./types/float64.js";
 import "./types/hex.js";
 import "./types/int8.js";
