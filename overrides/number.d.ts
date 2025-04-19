@@ -5,7 +5,7 @@ export {};
 declare global {
   interface NumberConstructor {
     parseInt(s: string, radix?: number): int;
-    isInteger(n: number): n is int;
-    isSafeInteger(n: number): n is int;
+    isInteger(n: unknown): n is int;
+    isSafeInteger(n: unknown): n is int;
   }
 }
