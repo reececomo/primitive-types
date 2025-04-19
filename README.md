@@ -12,11 +12,9 @@ id = "abc-123";
   // ^ ❌ tsc(2322): Type '"abc-123"' is not assignable to type 'uuid<v>'.
 ```
 
-Includes overloads for built-in Math, Array, TypedArrays and more.
-
-```ts
-let age: int = Math.abs(Math.trunc(36.66));
-```
+> [!TIP]
+> Includes overloads and type-narrowing for built-ins like Math, Array, Date,
+> Number, TypedArrays, and more.
 
 ## 💿 Install
 
