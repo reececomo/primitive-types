@@ -3,24 +3,30 @@
 Expressive low-level TypeScript types for integers, UUIDs, characters, etc.
 
 ```ts
-let age: uint8 = 22;
-
+let age: uint = 22;
 age = -1;
-  // ^ ❌ tsc(2322): Type '-1' is not assignable to type 'uint8'.
+  // ^ ❌ tsc(2322): Type '-1' is not assignable to type 'uint'.
 
-let id: uuid;
-
+let id: uuid = "01964bbf-a8b9-7710-9cea-3d6691b15689";
 id = "abc-123";
   // ^ ❌ tsc(2322): Type '"abc-123"' is not assignable to type 'uuid<v>'.
 ```
 
+Includes overloads for built-in Math, Array, TypedArrays and more.
+
+```ts
+let age: int = Math.abs(Math.trunc(36.66));
+```
+
 ## 💿 Install
 
-Install:
+Add package:
 
-`npm install primitive-types --save-dev`
+```sh
+npm install primitive-types --save-dev
+```
 
-Then enable in your `tsconfig.json`:
+Enable types in `tsconfig.json`:
 
 ```json
 {
@@ -61,11 +67,15 @@ Then enable in your `tsconfig.json`:
       <td><code>number</code></td>
     </tr>
     <tr>
-      <td>❌</td>
-      <td><b>uint32</b></td>
+      <td>✅*</td>
+      <td><b>uint32</b> or <b>uint</b></td>
       <td>Any 32-bit unsigned integer (0 to 4,294,967,295).</td>
-      <td><i>Not supported</i></td>
-      <td>-</td>
+      <td>
+        <a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a>
+        <br/>
+        <i>⚠️ *partial constants support beyond `uint16` range.</i>
+      </td>
+      <td><code>number</code></td>
     </tr>
     <!-- Integers -->
     <tr>
@@ -83,46 +93,43 @@ Then enable in your `tsconfig.json`:
       <td><code>number</code></td>
     </tr>
     <tr>
-      <td>❌</td>
-      <td><b>int32</b></td>
+      <td>✅*</td>
+      <td><b>int32</b> or <b>int</b></td>
       <td>Any 32-bit signed integer (-2,147,483,648 to 2,147,483,647).</td>
-      <td><i>Not supported</i></td>
-      <td>-</td>
+      <td>
+        <a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a>
+        <br/>
+        <i>⚠️ *partial constants support beyond `int16` range.</i>
+      </td>
+      <td><code>number</code></td>
     </tr>
     <!-- Bitfields -->
     <tr>
       <td>✅</td>
       <td><b>bit8</b></td>
-      <td>Any 8-bit bitmask value (e.g. 1, 2, 4, 8, …).</td>
+      <td>Any individual 8-bit bitmask value (e.g. 1, 2, 4, 8, …).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>number</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>bit16</b></td>
-      <td>Any 16-bit bitmask value (e.g. 1, 2, …, 256, 512, …).</td>
+      <td>Any individual 16-bit bitmask value (e.g. 1, 2, …, 256, 512, …).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>number</code></td>
     </tr>
     <tr>
       <td>✅</td>
-      <td><b>bit32</b></td>
-      <td>Any 32-bit bitmask value, excluding the int32 sign bit (e.g. 1, 2, …, 16777216, …).</td>
+      <td><b>bit32</b> or <b>bit</b></td>
+      <td>Any individual 32-bit bitmask value, excluding the int32 sign bit (e.g. 1, 2, …, 16777216, …).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>number</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>bit32_unsafe</b></td>
-      <td>Any 32-bit bitmask value, including the int32 sign bit (e.g. 1, 2, …, -2147483648).</td>
+      <td>Any individual 32-bit bitmask value, including the int32 sign bit (e.g. 1, 2, …, -2147483648).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
-      <td><code>number</code></td>
-    </tr>
-    <tr>
-      <td>✅</td>
-      <td><b>bit</b></td>
-      <td>Alias for <code>bit32</code>.</td>
-      <td><i>Alias</i></td>
       <td><code>number</code></td>
     </tr>
     <tr>
@@ -130,26 +137,26 @@ Then enable in your `tsconfig.json`:
       <td><b>bitfield</b></td>
       <td>Alias for <code>0b01111111111111111111111111111111</code> (or <code>2147483647</code>).</td>
       <td><i>Alias</i></td>
-      <td><code>number</code></td>
+      <td><code>2147483647</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>bitfield_unsafe</b></td>
       <td>Alias for <code>0b11111111111111111111111111111111</code> (or <code>-1</code>).</td>
       <td><i>Alias</i></td>
-      <td><code>number</code></td>
+      <td><code>-1</code></td>
     </tr>
     <!-- Floats -->
     <tr>
       <td>✅</td>
-      <td><b>double</b></td>
-      <td>Any 64-bit double-precision floating-point number.</td>
+      <td><b>float32</b> or <b>float</b></td>
+      <td>Any 32-bit single-precision floating-point number.</td>
       <td><i>Alias</i></td>
       <td><code>number</code></td>
     </tr>
     <tr>
       <td>✅</td>
-      <td><b>float64</b></td>
+      <td><b>float64</b> or <b>double</b></td>
       <td>Alias for <code>double</code>.</td>
       <td><i>Alias</i></td>
       <td><code>number</code></td>
@@ -158,23 +165,16 @@ Then enable in your `tsconfig.json`:
     <tr>
       <td>✅</td>
       <td><b>char8</b></td>
-      <td>Any 1-byte character (e.g. <code>'e'</code>, <code>'3'</code>).</td>
+      <td>Any ASCII range character (e.g. <code>'e'</code>, <code>'3'</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>string</code></td>
     </tr>
     <tr>
       <td>✅</td>
       <td><b>char16</b></td>
-      <td>Any 2-byte character (e.g. <code>'ѐ'</code>, <code>'϶'</code>).</td>
+      <td>Any UTF-16 range character (e.g. <code>'ѐ'</code>, <code>'϶'</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types">Union type</a></td>
       <td><code>string</code></td>
-    </tr>
-    <tr>
-      <td>❌</td>
-      <td><b>char32</b></td>
-      <td>Any 4-byte character.</td>
-      <td><i>Not supported</i></td>
-      <td>-</td>
     </tr>
     <!-- Strings -->
     <tr>
@@ -190,13 +190,6 @@ Then enable in your `tsconfig.json`:
       <td>Any string containing up to 2 bytes.</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html">Template literal type</a></td>
       <td><code>string</code></td>
-    </tr>
-    <tr>
-      <td>❌</td>
-      <td><b>str32</b></td>
-      <td>Any string containing up to 4 bytes.</td>
-      <td><i>Not supported</i></td>
-      <td>-</td>
     </tr>
     <!-- UUID -->
     <tr>
@@ -216,16 +209,9 @@ Then enable in your `tsconfig.json`:
     </tr>
     <tr>
       <td>✅</td>
-      <td><b>octet</b></td>
+      <td><b>octet</b> or <b>bytestr</b></td>
       <td>A 1-byte hexadecimal string representation (e.g. <code>"00"</code>, <code>"cb"</code>, <code>"F7"</code>).</td>
       <td><a href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html">Template literal type</a></td>
-      <td><code>string</code></td>
-    </tr>
-    <tr>
-      <td>✅</td>
-      <td><b>bytestr</b></td>
-      <td>Alias for <code>octet</code>.</td>
-      <td><i>Alias</i></td>
       <td><code>string</code></td>
     </tr>
     <tr>

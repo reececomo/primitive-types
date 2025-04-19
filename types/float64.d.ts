@@ -4,7 +4,7 @@ declare global {
   /**
    * A 64-bit floating-point number.
    */
-  type float64 = number;
+  type f64 = float64;
 
   /**
    * A 64-bit floating-point number.
@@ -14,5 +14,5 @@ declare global {
   /**
    * A 64-bit floating-point number.
    */
-  type f64 = float64;
+  type float64 = number;
 }
