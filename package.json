@@ -1,15 +1,20 @@
 {
   "name": "primitive-types",
-  "version": "0.2.5",
+  "description": "TypeScript types for integers, UUIDs, characters, etc.",
+  "version": "0.2.6",
   "author": "Reece Como <reece.como@gmail.com>",
   "repository": "https://github.com/reececomo/primitive-types",
   "homepage": "https://github.com/reececomo/primitive-types#readme",
   "license": "MIT",
-  "description": "Expressive low-level TypeScript types for integers, UUIDs, characters, etc.",
-  "types": "./globals.d.ts",
-  "main": "./globals.d.ts",
+  "types": "./dist/globals.d.ts",
   "files": [
-    "globals.d.ts",
-    "types/"
-  ]
+    "dist"
+  ],
+  "scripts": {
+    "build": "dts-bundle-generator ./src/globals.d.ts -o ./dist/globals.d.ts --inline-declare-global --no-banner"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0",
+    "dts-bundle-generator": "^9.5.0"
+  }
 }

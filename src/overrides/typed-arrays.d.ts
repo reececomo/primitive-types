@@ -9,37 +9,31 @@ export {};
 
 declare global {
   interface Int8Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: int8;
     at(index: number): int8 | undefined;
     map(callbackfn: (value: int8, index: uint, array: this, thisArg?: any) => int8): Int8Array<ArrayBuffer>;
   }
 
   interface Int16Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: int16;
     at(index: number): int16 | undefined;
     map(callbackfn: (value: int16, index: uint, array: this, thisArg?: any) => int16): Int16Array<ArrayBuffer>;
   }
 
   interface Int32Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: int32;
     at(index: number): int32 | undefined;
     map(callbackfn: (value: int32, index: uint, array: this, thisArg?: any) => int32): Int32Array<ArrayBuffer>;
   }
 
   interface Uint8Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: uint8;
     at(index: number): uint8 | undefined;
     map(callbackfn: (value: uint8, index: uint, array: this, thisArg?: any) => uint8): Uint8Array<ArrayBuffer>;
   }
 
   interface Uint16Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: uint16;
     at(index: number): uint16 | undefined;
     map(callbackfn: (value: uint16, index: uint, array: this, thisArg?: any) => uint16): Uint16Array<ArrayBuffer>;
   }
 
   interface Uint32Array<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {
-    [index: int]: uint32;
     at(index: number): uint32 | undefined;
     map(callbackfn: (value: uint32, index: uint, array: this, thisArg?: any) => uint32): Uint32Array<ArrayBuffer>;
   }

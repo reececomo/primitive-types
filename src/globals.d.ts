@@ -1,13 +1,5 @@
 export {};
 
-import "./overrides/array";
-import "./overrides/date";
-import "./overrides/global-fns";
-import "./overrides/math";
-import "./overrides/number";
-import "./overrides/string";
-import "./overrides/typed-arrays";
-
 import "./types/bitfield";
 import "./types/byte";
 import "./types/char8";
@@ -25,3 +17,11 @@ import "./types/uint16";
 import "./types/uint32";
 import "./types/uuid";
 import "./types/word";
+
+import "./overrides/array";
+import "./overrides/date";
+import "./overrides/global-fns";
+import "./overrides/math";
+import "./overrides/number";
+import "./overrides/string";
+import "./overrides/typed-arrays";
