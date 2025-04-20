@@ -1,11 +1,16 @@
-# 🔌 primitive-types
+# 🔌 primitive-types &nbsp;[![NPM version](https://img.shields.io/npm/v/primitive-types.svg)](https://www.npmjs.com/package/primitive-types) [![Minzipped](https://img.shields.io/badge/minzipped_size-0_KB!-blue)](https://bundlephobia.com/package/primitive-types) [![Downloads per month](https://img.shields.io/npm/dm/primitive-types.svg)](https://www.npmjs.com/package/primitive-types) [![License](https://badgen.net/npm/license/primitive-types)](https://github.com/reececomo/primitive-types/blob/main/LICENSE)
 
-Expressive low-level TypeScript types for integers, UUIDs, characters, etc.
+⚡ Expressive low-level TypeScript type narrowing for integers, UUIDs, characters, etc.
+
+| | |
+| ------ | ------ |
+| 🏋️ No casting necessary | 🚀 Type-narrowing for built-ins |
+| 🍃 Zero dependencies | 🔮 0kB (fully erased at build time) |
 
 ```ts
-let age: uint = 22;
-age = -1;
-  // ^ ❌ tsc(2322): Type '-1' is not assignable to type 'uint'.
+let age: int = 22;
+age = 10.25;
+  // ^ ❌ tsc(2322): Type '10.25' is not assignable to type 'int'.
 
 let id: uuid = "01964bbf-a8b9-7710-9cea-3d6691b15689";
 id = "abc-123";
@@ -24,7 +29,7 @@ Add package:
 npm install primitive-types --save-dev
 ```
 
-Enable types in `tsconfig.json`:
+Add types in `tsconfig.json`:
 
 ```json
 {
@@ -155,7 +160,7 @@ Enable types in `tsconfig.json`:
     <tr>
       <td>✅</td>
       <td><b>float64</b> or <b>double</b></td>
-      <td>Alias for <code>double</code>.</td>
+      <td>Any 64-bit single-precision floating-point number.</td>
       <td><i>Alias</i></td>
       <td><code>number</code></td>
     </tr>
